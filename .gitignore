@@ -2,4 +2,5 @@
 .Rproj.user
 .Rproj
 
-/data
+/data/*.xls
+/data/*.xls.date.txt
