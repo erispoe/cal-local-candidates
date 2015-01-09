@@ -4,3 +4,4 @@ sourceAll()
 
 # Download data
 downloadData()
+assembleCsv()
