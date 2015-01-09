@@ -13,7 +13,7 @@ downloadCedaFile <- function(y) {
   
   download.file(fileUrl, destfile=destfilePath, method="curl")
   dateDownloaded <- date()
-  write(dateDownloaded,file=paste(destfilePath,"date.txt", sep="",collapse=""))
+  write(dateDownloaded,file=paste(destfilePath,".date.txt", sep="",collapse=""))
 }
 
 downloadCedaFiles <- Vectorize(downloadCedaFile)
