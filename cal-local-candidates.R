@@ -5,3 +5,6 @@ sourceAll()
 # Download data
 downloadData()
 assembleCsv()
+
+data <- loadData()
+makeWordCloudUrbRur(data)

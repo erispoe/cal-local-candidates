@@ -1,35 +1,35 @@
-"Name";"FIPS"
-"Alpine";3
-"Amador";5
-"Butte";7
-"Calaveras";9
-"Colusa";11
-"Del Norte";15
-"El Dorado";17
-"Glenn";21
-"Humboldt";23
-"Imperial";25
-"Inyo";27
-"Lake";33
-"Lassen";35
-"Madera";39
-"Mariposa";43
-"Mendocino";45
-"Merced";47
-"Modoc";49
-"Mono";51
-"Napa";55
-"Nevada";57
-"Placer";61
-"Plumas";63
-"San Benito";69
-"Shasta";89
-"Sierra";91
-"Siskiyou";93
-"Sutter";101
-"Tehama";103
-"Trinity";105
-"Tulare";107
-"Tuolumne";109
-"Yolo";113
-"Yuba";115
+"Name";"FIPS";"CEDA"
+"Alpine";3;2
+"Amador";5;3
+"Butte";7;4
+"Calaveras";9;5
+"Colusa";11;6
+"Del Norte";15;8
+"El Dorado";17;9
+"Glenn";21;11
+"Humboldt";23;12
+"Imperial";25;13
+"Inyo";27;14
+"Lake";33;17
+"Lassen";35;18
+"Madera";39;20
+"Mariposa";43;22
+"Mendocino";45;23
+"Merced";47;24
+"Modoc";49;25
+"Mono";51;26
+"Napa";55;28
+"Nevada";57;29
+"Placer";61;31
+"Plumas";63;32
+"San Benito";69;35
+"Shasta";89;45
+"Sierra";91;46
+"Siskiyou";93;47
+"Sutter";101;51
+"Tehama";103;52
+"Trinity";105;53
+"Tulare";107;54
+"Tuolumne";109;55
+"Yolo";113;57
+"Yuba";115;58
