@@ -1,0 +1,32 @@
+Military Specific Occupations
+Military Officer Special and Tactical Operations Leaders
+Military Officer Special and Tactical Operations Leaders
+Air Crew Officers
+Aircraft Launch and Recovery Officers
+Armored Assault Vehicle Officers
+Artillery and Missile Officers
+Command and Control Center Officers
+Infantry Officers
+Special Forces Officers
+Military Officer Special and Tactical Operations Leaders, All Other
+First-Line Enlisted Military Supervisors
+First-Line Enlisted Military Supervisors
+First-Line Supervisors of Air Crew Members
+First-Line Supervisors of Weapons Specialists/Crew Members
+First-Line Supervisors of All Other Tactical Operations Specialists
+Military Enlisted Tactical Operations and Air/Weapons Specialists and Crew Members
+Military Enlisted Tactical Operations and Air/Weapons Specialists and Crew Members
+Air Crew Members
+Aircraft Launch and Recovery Specialists
+Armored Assault Vehicle Crew Members
+Artillery and Missile Crew Members
+Command and Control Center Specialists
+Infantry
+Radar and Sonar Technicians
+Special Forces
+Military Enlisted Tactical Operations and Air/Weapons Specialists and Crew Members, All Other
+
+General, Colonel, Sergeant, Captain, Lieutenant, Major, Brigadier
+USAF, Navy, Air Force
+Veteran
+Soldier
