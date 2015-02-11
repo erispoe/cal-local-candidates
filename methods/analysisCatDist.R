@@ -1,7 +1,6 @@
 analysis <- function() {
   
-data <- read.csv("data/CEDAcats.csv", sep=';')
-data.or <- loadData()
+data <- read.csv("data/CEDAcats2.csv", sep=';', quote="\"")
 
 library(ggplot2)
 
@@ -56,28 +55,28 @@ hist.diff <- ggplot(data=data.cats, aes(x=rownames(data.cats), y=diff.p)) +
 
 # No incumbents
 
-data.sub.noinc <- data[,c('urban','cats')]
+data.sub.noinc <- data[data$cats != "\"Incumbents\"",c('urban','cats')]
 
-data.sub.m <- melt(data.sub, id=c('urban'))
+data.sub.noinc.m <- melt(data.sub.noinc, id=c('urban'))
 
-data.sub.c <- cast(data.sub.m, urban ~ value, length)
+data.sub.noinc.c <- cast(data.sub.noinc.m, urban ~ value, length)
 
-data.cats <- t(data.sub.c)
+data.cats.noinc <- t(data.sub.noinc.c)
 
-data.cats <- cbind(data.cats[,1], data.cats[,2])
+data.cats.noinc <- cbind(data.cats.noinc[,1], data.cats.noinc[,2])
 
-colnames(data.cats) <- c('rur','urb')
+colnames(data.cats.noinc) <- c('rur','urb')
 
-data.cats <- as.data.frame(data.cats)
+data.cats.noinc <- as.data.frame(data.cats.noinc)
 
-data.cats$rur.p <- data.cats$rur / (nrow(data.sub[data.sub$urban == 0,]) - data.cats['NA','rur'])
-data.cats$urb.p <- data.cats$urb / (nrow(data.sub[data.sub$urban == 1,]) - data.cats['NA','urb'])
+data.cats.noinc$rur.p <- data.cats.noinc$rur / (nrow(data.sub.noinc[data.sub.noinc$urban == 0,]) - data.cats.noinc['NA','rur'])
+data.cats.noinc$urb.p <- data.cats.noinc$urb / (nrow(data.sub.noinc[data.sub.noinc$urban == 1,]) - data.cats.noinc['NA','urb'])
 
-data.cats <- data.cats[-nrow(data.cats),]
+data.cats.noinc <- data.cats.noinc[-nrow(data.cats.noinc),]
 
-data.cats$diff.p <- data.cats$urb.p - data.cats$rur.p
+data.cats.noinc$diff.p <- data.cats.noinc$urb.p - data.cats.noinc$rur.p
 
-hist.diff <- ggplot(data=data.cats, aes(x=rownames(data.cats), y=diff.p)) + 
+hist.diff.noinc <- ggplot(data=data.cats.noinc, aes(x=rownames(data.cats.noinc), y=diff.p)) + 
   geom_bar(stat = "identity") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 

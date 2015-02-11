@@ -6,26 +6,31 @@ categorizeSocV  <- function(sv) {
 
 categorizeSoc <- function(s, soc) {
   
+  library(tm)
+  library(proxy)
+  library(lsa)
+  
   v <- c(soc$definition, s)
   titles <- c(soc$title, 'string')
   
-  library(tm)
-  library(proxy)
   v.corpus <- prepare(v)
   v.tdm <- TermDocumentMatrix(v.corpus)
-  v.dissim <- dissimilarity(v.tdm, method = "cosine")
   
-  v.dissim2 <- as.matrix(v.dissim)
-  rownames(v.dissim2) <- titles
-  colnames(v.dissim2) <- titles
+  v.dissim <- proxy::dist(t(as.matrix(v.tdm)))
   
-  scores <- data.frame(v.dissim2[,'string'])
-  colnames(scores) <- 'dissim'
+  v.simil <- simil(t(as.matrix(v.tdm)))
+  
+  v.simil2 <- as.matrix(v.simil)
+  rownames(v.simil2) <- titles
+  colnames(v.simil2) <- titles
+  
+  scores <- data.frame(v.simil2[,'string'])
+  colnames(scores) <- 'simil'
   scores <- head(scores, -1)
   
   cat <- NA
-  if(min(scores$dissim) < 1) {
-    cat <- row.names(scores)[which.min(scores$dissim)]
+  if(max(scores$simil) > 0) {
+    cat <- row.names(scores)[which.max(scores$simil)]
   }
   return(cat)
   
