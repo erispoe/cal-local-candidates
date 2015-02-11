@@ -1,3 +1,0 @@
-business <- function(data) {
-  
-}
