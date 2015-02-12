@@ -1,6 +1,7 @@
 analysis <- function() {
   
-data <- read.csv("data/CEDAcats2.csv", sep=';', quote="\"")
+#data <- read.csv("data/CEDAcats2.csv", sep=';', quote="\"")
+load("data/CEDAcats.rda")
 
 library(ggplot2)
 
@@ -41,21 +42,24 @@ data.cats <- cbind(data.cats[,1], data.cats[,2])
 colnames(data.cats) <- c('rur','urb')
 
 data.cats <- as.data.frame(data.cats)
-
-data.cats$rur.p <- data.cats$rur / (nrow(data.sub[data.sub$urban == 0,]) - data.cats['NA','rur'])
-data.cats$urb.p <- data.cats$urb / (nrow(data.sub[data.sub$urban == 1,]) - data.cats['NA','urb'])
-
 data.cats <- data.cats[-nrow(data.cats),]
+
+data.cats$rur.p <- data.cats$rur / sum(data.cats$rur)
+data.cats$urb.p <- data.cats$urb / sum(data.cats$urb)
 
 data.cats$diff.p <- data.cats$urb.p - data.cats$rur.p
 
-hist.diff <- ggplot(data=data.cats, aes(x=rownames(data.cats), y=diff.p)) + 
-  geom_bar(stat = "identity") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+data.cats$cat <- rownames(data.cats)
+data.cats$cat2 <- reorder(data.cats$cat, -data.cats$diff.p)
+
+hist.diff <- ggplot(data=data.cats, aes(x=cat2, y=diff.p)) + 
+  geom_bar(fill="#56B4E9", stat = "identity") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  coord_flip()
 
 # No incumbents
 
-data.sub.noinc <- data[data$cats != "\"Incumbents\"",c('urban','cats')]
+data.sub.noinc <- data[data$cats != "Incumbents",c('urban','cats')]
 
 data.sub.noinc.m <- melt(data.sub.noinc, id=c('urban'))
 
@@ -69,15 +73,25 @@ colnames(data.cats.noinc) <- c('rur','urb')
 
 data.cats.noinc <- as.data.frame(data.cats.noinc)
 
-data.cats.noinc$rur.p <- data.cats.noinc$rur / (nrow(data.sub.noinc[data.sub.noinc$urban == 0,]) - data.cats.noinc['NA','rur'])
-data.cats.noinc$urb.p <- data.cats.noinc$urb / (nrow(data.sub.noinc[data.sub.noinc$urban == 1,]) - data.cats.noinc['NA','urb'])
-
 data.cats.noinc <- data.cats.noinc[-nrow(data.cats.noinc),]
+
+data.cats.noinc$rur.p <- data.cats.noinc$rur / sum(data.cats.noinc$rur)
+data.cats.noinc$urb.p <- data.cats.noinc$urb / sum(data.cats.noinc$urb)
 
 data.cats.noinc$diff.p <- data.cats.noinc$urb.p - data.cats.noinc$rur.p
 
-hist.diff.noinc <- ggplot(data=data.cats.noinc, aes(x=rownames(data.cats.noinc), y=diff.p)) + 
-  geom_bar(stat = "identity") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+data.cats.noinc$cat <- rownames(data.cats.noinc)
+data.cats.noinc$cat2 <- reorder(data.cats.noinc$cat, -data.cats.noinc$diff.p)
+
+hist.diff.noinc <- ggplot(data=data.cats.noinc, aes(x=cat2, y=diff.p)) + 
+  geom_bar(fill="#56B4E9", stat = "identity") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  coord_flip()
+
+ggsave(file = "exports/catDistDiffNoinc.pdf",
+       plot= hist.diff.noinc,
+       width = 21,
+       height = 29.7,
+       unit = 'cm')
 
 }

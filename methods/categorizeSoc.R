@@ -6,6 +6,8 @@ categorizeSocV  <- function(sv) {
 
 categorizeSoc <- function(s, soc) {
   
+  if(is.na(s)){return(NA)}
+  
   library(tm)
   library(proxy)
   library(lsa)
@@ -15,8 +17,6 @@ categorizeSoc <- function(s, soc) {
   
   v.corpus <- prepare(v)
   v.tdm <- TermDocumentMatrix(v.corpus)
-  
-  v.dissim <- proxy::dist(t(as.matrix(v.tdm)))
   
   v.simil <- simil(t(as.matrix(v.tdm)))
   
@@ -29,8 +29,10 @@ categorizeSoc <- function(s, soc) {
   scores <- head(scores, -1)
   
   cat <- NA
-  if(max(scores$simil) > 0) {
-    cat <- row.names(scores)[which.max(scores$simil)]
+  if(!is.na(max(scores$simil))){
+    if(max(scores$simil) > 0) {
+      cat <- row.names(scores)[which.max(scores$simil)]
+    }
   }
   return(cat)
   
