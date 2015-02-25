@@ -1,0 +1,6 @@
+Out of workforce
+Student
+Retired
+Disabled
+Retiree
+Unemployed

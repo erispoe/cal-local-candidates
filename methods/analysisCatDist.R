@@ -94,4 +94,18 @@ ggsave(file = "exports/catDistDiffNoinc.pdf",
        height = 29.7,
        unit = 'cm')
 
+# Count actual incumbents
+
+nrow(data[data$INCUMB == "Y" & data$cats == "Incumbents",]) / nrow(data[data$INCUMB == "Y",])
+
+nrow(data[data$INCUMB == "Y" & data$urban == 1,]) / nrow(data[data$urban == 1,])
+
+nrow(data[data$INCUMB == "Y" & data$urban == 0,]) / nrow(data[data$urban == 0,])
+
+nrow(data[data$INCUMB == "Y" & data$cats == "Incumbents" & data$urban == 1,]) / nrow(data[data$INCUMB == "Y"& data$urban == 1,])
+
+nrow(data[data$INCUMB == "Y" & data$cats == "Incumbents" & data$urban == 0,]) / nrow(data[data$INCUMB == "Y"& data$urban == 0,])
+
+
+
 }

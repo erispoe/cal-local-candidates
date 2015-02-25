@@ -168,3 +168,5 @@ Helpers--Production Workers
 Production Workers, All Other
 
 Ironworker
+Artisan
+Bottler

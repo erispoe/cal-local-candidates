@@ -1,7 +1,11 @@
-Public Servants
+Government officials
 Mayor
 Councilmember, Councilman, Councilwoman, Councilperson
 Commissioner
 City Treasurer
 Grand Juror
 Committee
+Assemblyman, Assemblywoman, Assembly
+Councilmen
+Senator
+Parliamentarian

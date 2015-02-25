@@ -44,3 +44,5 @@ Fireman, Firewoman
 Policeman, Policewoman
 Coroner
 Undersheriff
+Sherriff
+Marshal

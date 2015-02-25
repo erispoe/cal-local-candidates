@@ -2,6 +2,7 @@
 prepare <- function(c) {
   library(tm)
   c <- gsub("/", " ", c, ignore.case =FALSE, fixed = TRUE)
+  c <- gsub("\\", " ", c, ignore.case =FALSE, fixed = TRUE)
   c <- gsub("-", " ", c, ignore.case =FALSE, fixed = TRUE)
   c.vec <- VectorSource(c)
   c.corpus <- Corpus(c.vec)

@@ -64,3 +64,7 @@ Media and Communication Equipment Workers, All Other
 Journalist, Photojournalist
 Publicist
 Playwright, Screenwriter
+Filmmaker
+Clown
+Cinematographer
+Impresario
