@@ -9,3 +9,5 @@ Assemblyman, Assemblywoman, Assembly
 Councilmen
 Senator
 Parliamentarian
+County Supervisor
+Supervisor

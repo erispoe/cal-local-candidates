@@ -1,15 +1,22 @@
 analysis <- function() {
   
-#data <- read.csv("data/CEDAcats2.csv", sep=';', quote="\"")
-load("data/CEDAcats.rda")
-
 library(ggplot2)
+
+#data <- read.csv("data/CEDAcats2.csv", sep=';', quote="\"")
+load("data/CEDACatsAll.rda")
+data <- data[data$JUR == 1 | data$JUR == 2,]
+
+# Remove the word "Occupations" from the categories titles
+
+levels(data$cats) <- gsub(" Occupations", "", x= levels(data$cats))
+
 
 # Plot and save raw distribution
 
 hist.urb.raw <- ggplot(data=data[data$urban == 1,], aes(x=cats)) + 
-  geom_bar(stat="bin") + 
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  geom_bar(fill="#56B4E9", stat="bin") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  coord_flip()
 
 ggsave(file = "exports/catDistHistUrbRaw.pdf",
   plot= hist.urb.raw,
@@ -18,8 +25,9 @@ ggsave(file = "exports/catDistHistUrbRaw.pdf",
   unit = 'cm')
 
 hist.rur.raw <- ggplot(data=data[data$urban == 0,], aes(x=cats)) + 
-  geom_bar(stat="bin") + 
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  geom_bar(fill="#56B4E9", stat="bin") + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  coord_flip()
 
 ggsave(file = "exports/catDistHistRurRaw.pdf",
        plot= hist.rur.raw,
@@ -56,6 +64,12 @@ hist.diff <- ggplot(data=data.cats, aes(x=cat2, y=diff.p)) +
   geom_bar(fill="#56B4E9", stat = "identity") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   coord_flip()
+
+ggsave(file = "exports/catDistDiff.pdf",
+       plot= hist.diff,
+       width = 21,
+       height = 29.7,
+       unit = 'cm')
 
 # No incumbents
 
@@ -94,6 +108,17 @@ ggsave(file = "exports/catDistDiffNoinc.pdf",
        height = 29.7,
        unit = 'cm')
 
+
+# Unidentified designations
+
+View(data[!is.na(data$BALDESIG) & is.na(data$cats), c("BALDESIG", "cats")])
+
+# Count NAs
+
+nrow(data[is.na(data$BALDESIG),]) / nrow(data)
+nrow(data[is.na(data$BALDESIG) & data$urban == 1,]) / nrow(data[data$urban == 1,])
+nrow(data[is.na(data$BALDESIG) & data$urban == 0,]) / nrow(data[data$urban == 0,])
+
 # Count actual incumbents
 
 nrow(data[data$INCUMB == "Y" & data$cats == "Incumbents",]) / nrow(data[data$INCUMB == "Y",])
@@ -105,7 +130,5 @@ nrow(data[data$INCUMB == "Y" & data$urban == 0,]) / nrow(data[data$urban == 0,])
 nrow(data[data$INCUMB == "Y" & data$cats == "Incumbents" & data$urban == 1,]) / nrow(data[data$INCUMB == "Y"& data$urban == 1,])
 
 nrow(data[data$INCUMB == "Y" & data$cats == "Incumbents" & data$urban == 0,]) / nrow(data[data$INCUMB == "Y"& data$urban == 0,])
-
-
 
 }

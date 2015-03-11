@@ -1,12 +1,11 @@
 makeMaps <- function() {
   load("data/CEDAcats.rda")
+  data <- data[data$JUR == 1 | data$JUR == 2,]
 
   cats <- levels(data$cats)
 
   vMakeMapCat(cats)
 }
-
-vMakeMapCat <- Vectorize(makeMapCat)
 
 makeMapCat <- function(cat) {
   library(ggplot2)
@@ -48,10 +47,12 @@ makeMapCat <- function(cat) {
     labs(title=cat, fill="")
   
   cat <- gsub(" ", "", cat, fixed = TRUE) 
-  filename  <- paste("exports/catmaps/", cat, "-quantiles.pdf", sep="", collapse="")
+  filename  <- paste("exports/catmaps/qt-", cat, ".pdf", sep="", collapse="")
   ggsave(filename = filename,
          plot = plot,
          width = 21,
          height = 29.7,
          unit = 'cm')
 }
+
+vMakeMapCat <- Vectorize(makeMapCat)

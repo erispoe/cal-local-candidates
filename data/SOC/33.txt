@@ -1,12 +1,12 @@
 Protective Service Occupations
-Supervisors of Protective Service Workers
-First-Line Supervisors of Law Enforcement Workers
-First-Line Supervisors of Correctional Officers
-First-Line Supervisors of Police and Detectives
-First-Line Supervisors of Fire Fighting and Prevention Workers
-First-Line Supervisors of Fire Fighting and Prevention Workers
-Miscellaneous First-Line Supervisors, Protective Service Workers
-First-Line Supervisors of Protective Service Workers, All Other
+Protective Service Workers
+Law Enforcement Workers
+Correctional Officers
+Police and Detectives
+Fire Fighting and Prevention Workers
+Fire Fighting and Prevention Workers
+Protective Service Workers
+Protective Service Workers, All Other
 Fire Fighting and Prevention Workers
 Firefighters
 Firefighters
