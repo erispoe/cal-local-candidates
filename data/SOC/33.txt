@@ -46,3 +46,5 @@ Coroner
 Undersheriff
 Sherriff
 Marshal
+Police Commissioner
+Custodial Supervisor

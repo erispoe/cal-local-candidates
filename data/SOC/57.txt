@@ -1,7 +1,9 @@
 Government officials
 Mayor
 Councilmember, Councilman, Councilwoman, Councilperson
-Commissioner
+Member of the City Council
+Council member
+City Commissioner
 City Treasurer
 Grand Juror
 Committee
@@ -11,3 +13,6 @@ Senator
 Parliamentarian
 County Supervisor
 Supervisor
+County Supervisor
+Deputy County Supervisor
+District Supervisor

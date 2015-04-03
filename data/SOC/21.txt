@@ -29,3 +29,4 @@ Religious Workers, All Other
 Pastor, Minister, Clergyman, Clergywoman
 Bishop, Reverend, Chaplain
 Shaman
+Community Service
