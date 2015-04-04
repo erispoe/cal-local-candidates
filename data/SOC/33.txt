@@ -48,3 +48,10 @@ Sherriff
 Marshal
 Police Commissioner
 Custodial Supervisor
+Sheriff's Lieutenant
+Sheriff's Sergeant
+Traffic Officer
+Highway Patrol Commander
+Correctional Officer
+Peace Officer
+Probation Officer

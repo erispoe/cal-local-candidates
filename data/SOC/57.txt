@@ -16,3 +16,5 @@ Supervisor
 County Supervisor
 Deputy County Supervisor
 District Supervisor
+School Board Member
+Governing Board Member

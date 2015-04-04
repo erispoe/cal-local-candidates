@@ -73,3 +73,6 @@ Corporate President
 Innkeeper
 Foreman
 Owner
+Chief Executive Officer
+Chief Financial Officer
+Chief Business Officer

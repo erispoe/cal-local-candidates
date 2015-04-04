@@ -97,3 +97,5 @@ Education, Training, and Library Workers, All Other
 College Professor
 Tutor
 Lecturer
+School Principal
+College Admissions Officer
